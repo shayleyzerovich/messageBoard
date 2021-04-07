@@ -11,7 +11,7 @@ namespace ariel
 {
     class Board
     {
-        map<unsigned int, std::map<unsigned int, char>> board;
+        map<unsigned int, map<unsigned int, char>> board;
         unsigned int minRaw, maxRow, minCol,maxCol;
         
        
@@ -25,8 +25,8 @@ namespace ariel
         }
         ~Board() {}
       
-        void post(unsigned int row, unsigned int col, Direction direction, string const &message);
-        string read(unsigned int row, unsigned int col, Direction direction, uint length);
+        void post(unsigned int row, unsigned int column, Direction direction, string const &message);
+        string read(unsigned int row, unsigned int column, Direction direction, uint length);
         void show();
     };   
 }
