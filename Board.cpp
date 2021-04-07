@@ -38,7 +38,7 @@ namespace ariel
          {
             if (maxRow < row + message.length()){maxRow = row + message.length();}
         
-            if (maxCol < column){ colMax = column;}
+            if (maxCol < column){ maxCol = column;}
  
             for (unsigned int i = 0; i < message.length(); i++)
                 {
@@ -77,7 +77,7 @@ namespace ariel
             }
             else
             {
-               message += board[row][col];
+               message += board[row][column];
             }
             row++;
         }
