@@ -8,13 +8,15 @@ namespace ariel
 {
     class Board
     {
-        std::map<unsigned int, std::map<unsigned int, char>> board;
-        unsigned int minRaw, maxRow, maxCol, minCol;
+        map<unsigned int, std::map<unsigned int, char>> board;
+        unsigned int minRaw, maxRow, minCol,maxCol;
+        
+       
 
     public:
           Board() { 
             maxRow = 0;
-            minRow = UINT_MAX;  //Maximum value for a variable of type unsigned int (0xffffffff)
+            minRow = UINT_MAX;  
             maxCol = 0;
             minCol = UINT_MAX;
         }
@@ -23,6 +25,6 @@ namespace ariel
         void post(unsigned int row, unsigned int col, Direction direction, string const &message);
         string read(unsigned int row, unsigned int col, Direction direction, uint length);
         void show();
-        
-   
+    }    
 }
+    
