@@ -1,5 +1,9 @@
-#include <iostream>
+
 #include "Board.hpp"
+#include <string>
+#include <climits>
+#include <iostream>
+
 using namespace std;
 
 namespace ariel
