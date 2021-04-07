@@ -17,15 +17,15 @@ namespace ariel
                return;
             }
         // resize board
-        if (minRow > row){ rowMin = row; }
-        if (maxRow < row){maxRow = row); }
-        if (minCol > column) {minCol = column);
-        if (maxCol < column) {maxCol = column);
+        if (minRow > row){ minRow = row; }
+        if (maxRow < row){maxRow = row; }
+        if (minCol > column) {minCol = column;}
+        if (maxCol < column) {maxCol = column;}
         
-        for(char letter: message)
+        for(char i: message)
         {
-            //this->board[row][column].entry = letter;
-            board[row][column] = message.at(letter);
+            /
+            board[row][column] = i;
             if(direction == Direction::Horizontal){
                 column++;
             }
@@ -45,7 +45,7 @@ namespace ariel
             }
     }
        
-    string Board::read(unsigned int row, unsigned int column, Direction direction, unsigned int length )
+    string Board::read(unsigned int row, unsigned int column, Direction direction, unsigned int length)
     {
         string message;
         for(unsigned int i=0; i<length; i++){
@@ -69,7 +69,7 @@ namespace ariel
         return message;
     }
 
-    }
+    
    
     void Board::show()
     {
@@ -89,5 +89,6 @@ namespace ariel
                           }
                   }
         cout << endl;
+            }
     }
 }
