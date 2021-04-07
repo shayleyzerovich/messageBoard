@@ -24,7 +24,7 @@ namespace ariel
         
         for(char i: message)
         {
-            /
+            
             board[row][column] = i;
             if(direction == Direction::Horizontal){
                 column++;
