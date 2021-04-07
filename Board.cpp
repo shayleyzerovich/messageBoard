@@ -22,35 +22,55 @@ namespace ariel
         if (minCol > column) {minCol = column;}
         if (maxCol < column) {maxCol = column;}
         
-        for(char i: message)
-        {
-            
-            board[row][column] = i;
-            if(direction == Direction::Horizontal){
-                column++;
-            }
-            else // vertical
-            {
-                row++; 
-            }
-            length++;
-        }
-        if(direction == Direction::Horizontal){
-            // update board size
-                maxCol+=length;
-            }
-            else
-            {
-                maxRow+=length;
-            }
-    }
+        if (direction == Direction::Vertical)
+         {
+            if (maxRow < row + message.length()){maxRow = row + message.length();}
+        
+            if (maxCol < column){ colMax = column;}
+ 
+            for (unsigned int i = 0; i < message.length(); i++)
+                {
+                  board[row][column] = message.at(i);
+                  row++;
+                 }
+          }
+        else if (direction == Direction::Horizontal)
+         {
+             if (maxCol < column + message.length()){maxCol = column + message.length();}
        
+             if (maxRow < row){ maxRow = row;}
+   
+             for (unsigned int i = 0; i < message.length(); i++)
+                 {
+                   board[row][column] = message.at(i);
+                   column++;
+                  }
+          }
+   }
+   
     string Board::read(unsigned int row, unsigned int column, Direction direction, unsigned int length)
     {
         string message;
-        for(unsigned int i=0; i<length; i++){
-           // message += this->board[row][column].entry;
-           if (board[row][column] != 0)
+        if (direction == Direction::Vertical)
+         {
+        for (unsigned int i = 0; i < length; i++)
+        {
+            if (board[row][column] != 0)
+            {
+                message += board[row][col];
+            }
+            else
+            {
+                message += '_';
+            }
+            row++;
+        }
+    }
+    else if (direction == Direction::Horizontal)
+    {
+        for (unsigned int i = 0; i < length; i++)
+        {
+            if (board[row][column] != 0)
             {
                 message += board[row][column];
             }
@@ -58,16 +78,11 @@ namespace ariel
             {
                 message += '_';
             }
-            if(direction == Direction::Horizontal){
-                column++;
-            }
-            else  // if vertical
-            {
-                row++; 
-            }        
+            column++;
         }
-        return message;
     }
+    return message;
+}
 
     
    
