@@ -1,18 +1,28 @@
-#include <string>
+#include <iostream>
 #include "Direction.hpp"
+#include <string>
+#include <map>
 
-using namespace std;
 
 namespace ariel
 {
     class Board
     {
-        unsigned int rows;
-        unsigned int cols;
+        std::map<unsigned int, std::map<unsigned int, char>> board;
+        unsigned int minRaw, maxRow, maxCol, minCol;
 
     public:
-        static void post(unsigned int row, unsigned int column, Direction direction, string const & data);           // Function Based off Demo given by Erel(Arguments...)
-        static string read(unsigned int row, unsigned int column, Direction direction, unsigned int length); // Function Based off Demo given by Erel(Arguments...)
+          Board() { 
+            maxRow = 0;
+            minRow = UINT_MAX;  //Maximum value for a variable of type unsigned int (0xffffffff)
+            maxCol = 0;
+            minCol = UINT_MAX;
+        }
+        ~Board() {}
+      
+        void post(unsigned int row, unsigned int col, Direction direction, string const &message);
+        string read(unsigned int row, unsigned int col, Direction direction, uint length);
         void show();
-    };
+        
+   
 }
