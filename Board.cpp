@@ -17,15 +17,15 @@ namespace ariel
                return;
             }
         // resize board
-        this->minRow = min(this->minRow, row);
-        this->maxRow = max(this->maxRow, row);
-        this->minCol = min(this->minCol, column);
-        this->maxCol = max(this->maxCol, column);
+        if (minRow > row){ rowMin = row; }
+        if (maxRow < row){maxRow = row); }
+        if (minCol > column) {minCol = column);
+        if (maxCol < column) {maxCol = column);
         
         for(char letter: message)
         {
             //this->board[row][column].entry = letter;
-            board[row][col] = message.at(letter);
+            board[row][column] = message.at(letter);
             if(direction == Direction::Horizontal){
                 column++;
             }
@@ -50,9 +50,9 @@ namespace ariel
         string message;
         for(unsigned int i=0; i<length; i++){
            // message += this->board[row][column].entry;
-           if (board[row][col] != 0)
+           if (board[row][column] != 0)
             {
-                message += board[row][col];
+                message += board[row][column];
             }
             else
             {
@@ -74,10 +74,10 @@ namespace ariel
     void Board::show()
     {
       
-         for (unsigned long i = rowMin; i < rowMax + 5; i++)
+         for (unsigned long i = minRow; i < maxRow + 5; i++)
              {
                cout << i << ": ";
-               for (unsigned long j = colMin; j < colMax + 5; j++)
+               for (unsigned long j = minCol; j < maxCol + 5; j++)
                     {
                      if (board[i][j] != 0)
                           {
