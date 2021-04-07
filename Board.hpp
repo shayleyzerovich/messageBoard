@@ -25,6 +25,6 @@ namespace ariel
         void post(unsigned int row, unsigned int col, Direction direction, string const &message);
         string read(unsigned int row, unsigned int col, Direction direction, uint length);
         void show();
-    }    
+    };   
 }
     
